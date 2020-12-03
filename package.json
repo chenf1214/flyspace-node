@@ -1,0 +1,15 @@
+{
+  "name": "flykoa",
+  "version": "1.0.0",
+  "description": "a koa2 project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "chenf",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.0",
+    "nodemon": "^2.0.6"
+  }
+}
