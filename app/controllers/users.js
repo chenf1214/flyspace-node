@@ -1,4 +1,4 @@
-const jsonwebtoken = require('jsonwebtoken')
+const jsonwebtoken = require('koa-jwt')
 const User = require('../models/users')
 const { secret } = require('../config')
 class UsersCtl {

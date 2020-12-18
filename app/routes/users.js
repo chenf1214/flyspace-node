@@ -10,24 +10,24 @@ const {
 const router = new Router({
     prefix: '/users'
 })
-
+                                                                                                                                                                   
 const { secret } = require('../config')
-const jsonwebtoken = require('jsonwebtoken')
+const jwt = require('koa-jwt')
 
-const auth = async (ctx, next) => {
-    // 短路语法
-    
-    const { authorization = '' } = ctx.request.header
-    const token = authorization.replace('Bearer ', "")
-    try{
-        const user = jsonwebtoken.verify(token, secret)
-        ctx.state.user = user
-    }catch(err){
-        ctx.throw(401, err.message)
-    }
-    await next()
+const auth = jwt({ secret })
 
-}
+//const auth = async (ctx, next) => {
+// 短路语法   
+//     const { authorization = '' } = ctx.request.header
+//     const token = authorization.replace('Bearer ', "")
+//     try{
+//         const user = jsonwebtoken.verify(token, secret)
+//         ctx.state.user = user
+//     }catch(err){
+//         ctx.throw(401, err.message)
+//     }
+//     await next()
+// }
 
 router.post('/', create)
 router.get('/', find)
