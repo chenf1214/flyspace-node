@@ -2,6 +2,7 @@ const Router = require('koa-router')
 const {
     create,
     find,
+    findById,
     update,
     delUser,
     login,
@@ -31,6 +32,7 @@ const auth = jwt({ secret })
 
 router.post('/', create)
 router.get('/', find)
+router.get('/:id', findById)
 router.patch('/:id', auth, checkOwner, update)
 router.delete('/:id', auth, checkOwner, delUser)
 
