@@ -6,7 +6,10 @@ const {
     update,
     delUser,
     login,
-    checkOwner
+    checkOwner,
+    listFollowing,
+    follow,
+    unfollow
 } = require('../controllers/users')
 const router = new Router({
     prefix: '/users'
@@ -38,6 +41,10 @@ router.delete('/:id', auth, checkOwner, delUser)
 
 router.post('/login', login)
 
+router.get('/:id/following', listFollowing)
+
+router.put('/following/:id', auth, follow)
+router.put('/unfollowing/:id', auth, unfollow)
 
 
 module.exports = router
